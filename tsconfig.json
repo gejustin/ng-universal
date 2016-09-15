@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "noImplicitAny": false,
+        "baseUrl": ".",
+        "typesRoot": [
+            "./node_modules/@types"
+        ]
+    },
+    "files": [
+        "./src/server/main.ts",
+        "custom-typings.d.ts"
+    ]
+}
