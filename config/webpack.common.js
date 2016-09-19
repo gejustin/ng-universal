@@ -17,6 +17,10 @@ var COMMON_CONFIG = {
             {
                 test: /\.ts$/,
                 loaders: ['awesome-typescript-loader']
+            },
+            {
+                test: /\.html$/,
+                loaders: ['html-loader']
             }
         ]
     },

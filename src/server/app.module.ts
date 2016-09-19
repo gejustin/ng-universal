@@ -2,31 +2,21 @@ import { NgModule } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
 
 import {
-    ExpressModule,
-    ExpressApplication,
-    EnvironmentModule,
-} from './shared';
+    MessageComponent,
+    MessageService,
+} from '../app/message';
 
-import { StatusModule } from './status';
-import { AppController } from './app.controller';
+import { AppComponent } from '../app/app.component';
+
 @NgModule({
-    imports: [
-        UniversalModule.withConfig({
-            originUrl: 'http://localhost:3000',
-            baseUrl: '/',
-            requestUrl: '/',
-        }),
-        EnvironmentModule,
-        ExpressModule,
-        StatusModule,
+    bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        MessageComponent
     ],
-    providers: [ExpressApplication, AppController],
+    imports: [
+        UniversalModule,
+    ],
+    providers: [MessageService],
 })
-export class AppModule {
-
-    constructor(private expressApp: ExpressApplication) { ; }
-
-    public ngDoBootstrap() {
-        this.expressApp.start();
-    }
-}
+export class AppModule { }

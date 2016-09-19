@@ -4,7 +4,7 @@ var ROOT_DIR = path.resolve(__dirname, '../');
 var SOURCE_DIR = path.resolve(ROOT_DIR, './src');
 var SERVER_DIR = path.resolve(SOURCE_DIR, './server');
 var BUILD_DIR = path.resolve(ROOT_DIR, './dist');
-var PUBLIC_DIR = path.resolve(BUILD_DIR, './app');
+var PUBLIC_DIR = path.resolve(BUILD_DIR, './site');
 var NODE_DIR = path.resolve(ROOT_DIR, './node_modules');
 
 var HOST = process.env.HOST || 'localhost';

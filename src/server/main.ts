@@ -1,11 +1,12 @@
-require('reflect-metadata');
-require('zone.js');
+import 'reflect-metadata';
+import 'zone.js';
+
 import { platformNodeDynamic } from 'angular2-universal';
 
-import { AppModule } from './app.module';
+import { MainModule } from './main.module';
 
 function main() {
-    platformNodeDynamic().serializeModule(AppModule).then(null, console.log.bind(console));
+    platformNodeDynamic().bootstrapModule(MainModule).then(null, console.log.bind(console));
 }
 
 main();

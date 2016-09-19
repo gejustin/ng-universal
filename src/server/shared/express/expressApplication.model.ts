@@ -6,7 +6,6 @@ import {
     Injector,
 } from '@angular/core';
 
-import { AppModule } from '../../app.module';
 import { Application } from 'express';
 
 import {
@@ -41,20 +40,20 @@ export class ExpressApplication {
 
     public init() {
         this.app.use(this.compression());
-        this.app.use(this.express.static(this.environment.PUBLIC_DIR));
 
-        this.app.engine('.html', this.ng2ExpressEngine.createEngine({
-            time: true,
-            main: (config) => AppModule,
-        }));
-        this.app.set('views', this.environment.SOURCE_DIR);
+        this.app.engine('.html', this.ng2ExpressEngine.createEngine({precompile: true}));
+        this.app.set('views', this.environment.BUILD_DIR);
         this.app.set('view engine', 'html');
 
         this.routingController.useContainer(this.injector, {
             fallback: true,
             fallbackOnErrors: true,
         });
-        this.app = this.routingController.useExpressServer(this.app);
+        this.app = this.routingController.useExpressServer(this.app, {
+            useClassTransformer: false,
+        });
+
+        this.app.use(this.express.static(this.environment.PUBLIC_DIR));
     }
 
     public start() {
