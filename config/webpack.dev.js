@@ -8,7 +8,7 @@ var COMMON_CONFIG = require('./webpack.common');
 
 var SERVER_CONFIG = {
     target: 'node',
-    entry: path.join(environment.SERVER_DIR, 'main.alt'),
+    entry: path.join(environment.SERVER_DIR, 'main'),
     name: 'server',
     output: {
         path: environment.BUILD_DIR,
